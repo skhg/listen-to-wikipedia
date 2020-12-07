@@ -1,0 +1,23 @@
+name: All Branches
+on: push
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v1
+      - name: Install webapp tools
+        run: |
+          yarn add eslint
+          yarn add stylelint
+      - name: Run ESLint checks
+        run: |
+          yarn run eslint ./static/**/*.js
+      - name: Run StyleLint checks
+        run: |
+          yarn run stylelint ./static/**/*.css
+      - name: Cleanup
+        run: |
+          rm -rf node_modules
+          rm package.json
+          rm yarn.lock
