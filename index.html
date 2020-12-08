@@ -322,6 +322,8 @@
             itemStyle.setProperty('display', mode ? 'none' : '');
             itemStyle.setProperty('height', mode ? '0px' : '');
         }
+
+        $(window).trigger('resize');
     }
     </script>
 <link href='css/style.css' rel='stylesheet' type='text/css'>
