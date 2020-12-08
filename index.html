@@ -317,11 +317,11 @@
     function fullScreen(mode) {
         const noFull = document.getElementsByClassName('noFull');
 
-        for (var i = 0; i < noFull.length; i++) {
-            console.log(noFull[i]);
-            noFull[i].style.setProperty('display',mode ? 'none' : '');
+        for (let i = 0; i < noFull.length; i++) {
+            const itemStyle = noFull[i].style;
+            itemStyle.setProperty('display', mode ? 'none' : '');
+            itemStyle.setProperty('height', mode ? '0px' : '');
         }
-
     }
     </script>
 <link href='css/style.css' rel='stylesheet' type='text/css'>
